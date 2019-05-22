@@ -9,6 +9,6 @@ install:
 - mvn -N io.takari:maven:wrapper
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
-  - mvn validate clean install | egrep -v "(^\[INFO\]|^\[DEBUG\])"
+  - mvn -q clean package
 after_success:
   - bash <(curl -s https://codecov.io/bash)
